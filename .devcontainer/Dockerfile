@@ -36,7 +36,7 @@ RUN rustup component add rustfmt
 
 
 # Install riscv64 toolchain
-RUN wget https://toolchaixz --decompress riscv64-lp64d--musl--stable-2024.05-1.tar.xzns.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--musl--stable-2024.05-1.tar.xz
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--musl--stable-2024.05-1.tar.xz
 RUN xz --decompress riscv64-lp64d--musl--stable-2024.05-1.tar.xz
 RUN tar -xf riscv64-lp64d--musl--stable-2024.05-1.tar
 RUN rm riscv64-lp64d--musl--stable-2024.05-1.tar
