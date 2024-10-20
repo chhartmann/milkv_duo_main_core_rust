@@ -1,5 +1,6 @@
 [target.riscv64gc-unknown-linux-musl]
 linker = "/home/milkv/riscv64-lp64d--musl--stable-2024.05-1/bin/riscv64-buildroot-linux-musl-gcc"
+runner = "qemu-riscv64 -L /home/milkv/riscv64-lp64d--musl--stable-2024.05-1/riscv64-buildroot-linux-musl/sysroot"
 
 [build]
 target = ["riscv64gc-unknown-linux-musl"]

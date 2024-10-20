@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to QEMU",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "./target/riscv64gc-unknown-linux-musl/debug/milkv_duo_main_core_rust",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb-multiarch",
+            "miDebuggerServerAddress": "localhost:1234"
+        }
+    ]
+}

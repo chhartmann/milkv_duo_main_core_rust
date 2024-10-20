@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "cargo build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run with QEMU",
+            "type": "shell",
+            "command": "cargo run",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Run with QEMU with gdb",
+            "type": "shell",
+            "command": "qemu-riscv64 -L /home/milkv/riscv64-lp64d--musl--stable-2024.05-1/riscv64-buildroot-linux-musl/sysroot -g 1234 ./target/riscv64gc-unknown-linux-musl/debug/milkv_duo_main_core_rust",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}
