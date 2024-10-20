@@ -13,7 +13,7 @@ ARG GITHUB_TOKEN
 # Install dependencies
 RUN apt-get update \
     && apt-get install -y git curl llvm-dev libclang-dev clang unzip gdb-multiarch \
-    libssl-dev pkg-config qemu-user file cpio git ssh make wget \
+    libssl-dev pkg-config qemu-user file cpio git ssh make wget xz-utils \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # Set users
@@ -28,15 +28,17 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
 # Update envs
 ENV PATH=${PATH}:/home/${CONTAINER_USER}/.cargo/bin
 
-# Set default toolchain
+# Set rust toolchain
 RUN rustup toolchain install nightly
-RUN rustup component add rust-src --toolchain nightly
+RUN rustup target add riscv64gc-unknown-linux-musl
 RUN rustup component add clippy
 RUN rustup component add rustfmt
 
 
-# Setup buildroot incl. toolchain with new uclibc
-RUN git clone https://github.com/milkv-duo/duo-sdk.git
-ENV PATH="$PATH:/home/milkv/duo-sdk/riscv64-linux-musl-x86_64/bin"
+# Install riscv64 toolchain
+RUN wget https://toolchaixz --decompress riscv64-lp64d--musl--stable-2024.05-1.tar.xzns.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--musl--stable-2024.05-1.tar.xz
+RUN xz --decompress riscv64-lp64d--musl--stable-2024.05-1.tar.xz
+RUN tar -xf riscv64-lp64d--musl--stable-2024.05-1.tar
+RUN rm riscv64-lp64d--musl--stable-2024.05-1.tar
 
 CMD [ "/bin/bash" ]

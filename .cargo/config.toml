@@ -1,9 +1,5 @@
+[target.riscv64gc-unknown-linux-musl]
+linker = "/home/milkv/riscv64-lp64d--musl--stable-2024.05-1/bin/riscv64-buildroot-linux-musl-gcc"
+
 [build]
 target = ["riscv64gc-unknown-linux-musl"]
-
-[target.riscv64gc-unknown-linux-musl]
-linker = "riscv64-unknown-linux-musl-gcc"
-ar = "riscv64-unknown-linux-musl-ar"
-
-[unstable]
-build-std = ["core", "std", "alloc", "proc_macro", "test"]
