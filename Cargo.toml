@@ -1,0 +1,6 @@
+[package]
+name = "milkv_duo_main_core_rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

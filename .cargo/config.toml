@@ -1,0 +1,7 @@
+[build]
+target = ["riscv64gc-unknown-linux-musl"]
+
+[target.riscv64gc-unknown-linux-musl]
+linker = "/home/christian/milkv/duo-buildroot-sdk/host-tools/gcc/riscv64-linux-musl-x86_64/bin/riscv64-unknown-linux-musl-gcc"
+rustflags = [
+    "-C", "link-arg=--sysroot=/home/barrett/Downloads/milkv-buildroot/sdk/host/riscv64-buildroot-linux-musl/sysroot"]
