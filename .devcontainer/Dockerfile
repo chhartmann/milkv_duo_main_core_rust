@@ -40,5 +40,5 @@ RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp
 RUN xz --decompress riscv64-lp64d--musl--stable-2024.05-1.tar.xz
 RUN tar -xf riscv64-lp64d--musl--stable-2024.05-1.tar
 RUN rm riscv64-lp64d--musl--stable-2024.05-1.tar
-
+RUN ln -s $PWD/riscv64-lp64d--musl--stable-2024.05-1/riscv64-buildroot-linux-musl/sysroot/lib/ld-musl-riscv64.so.1 $PWD/riscv64-lp64d--musl--stable-2024.05-1/riscv64-buildroot-linux-musl/sysroot/lib/ld-musl-riscv64v0p7_xthead.so.1
 CMD [ "/bin/bash" ]
